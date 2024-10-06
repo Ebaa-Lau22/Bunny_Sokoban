@@ -1,7 +1,3 @@
-import '../../manican/lib/features/employees/presentation/pages/add_employee_screen.dart';
-import 'package:Persis/manican/home_screen.dart';
-import 'package:Persis/manican/login_screen.dart';
-import 'package:Persis/manican/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +5,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:Persis/Persis/modules/home_screen.dart';
 import 'Persis/logic/game_cubit.dart';
 import 'Persis/logic/game_states.dart';
-import 'manican/cubit.dart';
 
 void main() {
 
@@ -28,8 +23,8 @@ class MyApp extends StatelessWidget {
 
     return BlocProvider(
       //create: (context) => GameCubit()..init(),
-      create: (context) => AppCubit(),
-      child: BlocConsumer</*GameCubit, GameStates*/AppCubit, AppStates>(
+      create: (context) => GameCubit(),
+      child: BlocConsumer<GameCubit, GameStates>(
         listener: (context, state) {},
         builder: (context, state) {
           return MaterialApp(
@@ -49,7 +44,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.amber,
             ),
 
-            home: const AddEmployeeScreen(),
+            home: const HomeScreen(),
           );
         },
       )
